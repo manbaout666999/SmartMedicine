@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">智能药物</string>
+    
+    <!-- 导航 -->
+    <string name="nav_home">首页</string>
+    <string name="nav_medicine">药物</string>
+    <string name="nav_health">健康</string>
+    <string name="nav_ai">AI助手</string>
+    <string name="nav_profile">我的</string>
+    
+    <!-- 首页 -->
+    <string name="today_medicine">今日用药</string>
+    <string name="upcoming_medicine">即将用药</string>
+    <string name="no_medicine_today">今日暂无用药提醒</string>
+    <string name="view_all">查看全部</string>
+    <string name="quick_action">快捷操作</string>
+    <string name="add_medicine">添加药物</string>
+    <string name="scan_medicine">扫码识别</string>
+    
+    <!-- 药物列表 -->
+    <string name="medicine_list">药物列表</string>
+    <string name="all_medicine">全部药物</string>
+    <string name="need_refill">需要补货</string>
+    <string name="expired">已过期</string>
+    <string name="search_medicine">搜索药物</string>
+    <string name="no_medicine">暂无药物</string>
+    <string name="add_first_medicine">添加您的第一种药物吧</string>
+    
+    <!-- 添加药物 -->
+    <string name="add_medicine_title">添加药物</string>
+    <string name="edit_medicine_title">编辑药物</string>
+    <string name="medicine_name">药物名称</string>
+    <string name="medicine_name_hint">请输入药物名称</string>
+    <string name="medicine_spec">规格</string>
+    <string name="medicine_spec_hint">如：10mg*24片</string>
+    <string name="medicine_dosage">用量</string>
+    <string name="medicine_dosage_hint">如：每次1片</string>
+    <string name="medicine_frequency">服用频率</string>
+    <string name="medicine_stock">库存数量</string>
+    <string name="medicine_stock_hint">请输入剩余数量</string>
+    <string name="medicine_manufacturer">生产企业</string>
+    <string name="medicine_manufacturer_hint">请输入生产企业</string>
+    <string name="medicine_batch">生产批号</string>
+    <string name="medicine_batch_hint">请输入生产批号</string>
+    <string name="medicine_expiry">有效期至</string>
+    <string name="medicine_expiry_hint">请选择有效期</string>
+    <string name="medicine_remarks">备注</string>
+    <string name="medicine_remarks_hint">添加用药说明（可选）</string>
+    <string name="save">保存</string>
+    <string name="cancel">取消</string>
+    <string name="delete">删除</string>
+    <string name="take_photo">拍照</string>
+    <string name="choose_photo">从相册选择</string>
+    <string name="scan_barcode">扫码识别</string>
+    
+    <!-- 服用频率选项 -->
+    <string name="frequency_once">一天一次</string>
+    <string name="frequency_twice">一天两次</string>
+    <string name="frequency_three_times">一天三次</string>
+    <string name="frequency_four_times">一天四次</string>
+    <string name="frequency_as_needed">必要时服用</string>
+    <string name="frequency_weekly">一周一次</string>
+    <string name="frequency_custom">自定义</string>
+    
+    <!-- 用药时间 -->
+    <string name="medicine_time">用药时间</string>
+    <string name="add_time">添加时间</string>
+    <string name="set_reminder">设置提醒</string>
+    <string name="reminder_time">提醒时间</string>
+    
+    <!-- 药物详情 -->
+    <string name="medicine_detail">药物详情</string>
+    <string name="basic_info">基本信息</string>
+    <string name="usage_info">服用说明</string>
+    <string name="stock_info">库存信息</string>
+    <string name="remaining_stock">剩余 %d %s</string>
+    <string name="expiry_date">有效期至：%s</string>
+    <string name="days_to_expire">还有 %d 天过期</string>
+    <string name="expired_warning">药物已过期，请勿服用！</string>
+    <string name="refill_reminder">库存不足，请及时补充</string>
+    <string name="take_medicine">服药</string>
+    <string name="medicine_taken">已服药</string>
+    <string name="edit">编辑</string>
+    <string name="share">分享</string>
+    
+    <!-- 服药记录 -->
+    <string name="medicine_history">服药记录</string>
+    <string name="taken_time">服药时间：%s</string>
+    <string name="missed_medicine">漏服提醒</string>
+    <string name="missed_medicine_msg">您有药物未按时服用</string>
+    
+    <!-- 健康数据 -->
+    <string name="health_data">健康数据</string>
+    <string name="blood_pressure">血压</string>
+    <string name="blood_pressure_hint">如：120/80</string>
+    <string name="heart_rate">心率</string>
+    <string name="heart_rate_hint">如：75</string>
+    <string name="blood_sugar">血糖</string>
+    <string name="blood_sugar_hint">如：5.6</string>
+    <string name="body_temperature">体温</string>
+    <string name="body_temperature_hint">如：36.5</string>
+    <string name="weight">体重</string>
+    <string name="weight_hint">如：65.5</string>
+    <string name="sleep_hours">睡眠时长</string>
+    <string name="sleep_hours_hint">如：7.5</string>
+    <string name="record_health">记录健康数据</string>
+    <string name="health_trend">健康趋势</string>
+    <string name="health_report">健康报告</string>
+    <string name="last_update">最近更新：%s</string>
+    <string name="unit_mmhg">mmHg</string>
+    <string name="unit_bpm">次/分</string>
+    <string name="unit_mmol">mmol/L</string>
+    <string name="unit_celsius">℃</string>
+    <string name="unit_kg">kg</string>
+    <string name="unit_hour">小时</string>
+    
+    <!-- AI助手 -->
+    <string name="ai_assistant">AI健康助手</string>
+    <string name="ai_description">智能问答，为您解答用药和健康问题</string>
+    <string name="ask_question">输入您的问题</string>
+    <string name="send">发送</string>
+    <string name="ai_suggestion">建议</string>
+    <string name="ai_warning">温馨提示</string>
+    <string name="clear_chat">清空对话</string>
+    <string name="chat_history">对话历史</string>
+    
+    <!-- AI快捷问题 -->
+    <string name="ai_q1">药物能否空腹服用？</string>
+    <string name="ai_q2">忘记吃药怎么办？</string>
+    <string name="ai_q3">药物有哪些副作用？</string>
+    <string name="ai_q4">如何减少药物苦味？</string>
+    <string name="ai_q5">药物相互作用有哪些？</string>
+    <string name="ai_q6">如何正确储存药物？</string>
+    
+    <!-- 个人中心 -->
+    <string name="profile">个人中心</string>
+    <string name="my_medicine">我的药物</string>
+    <string name="my_health_data">健康数据</string>
+    <string name="medicine_reminder">用药提醒</string>
+    <string name="settings">设置</string>
+    <string name="notification_settings">通知设置</string>
+    <string name="reminder_before">提前提醒</string>
+    <string name="reminder_minutes">%d 分钟前</string>
+    <string name="about">关于</string>
+    <string name="version">版本 %s</string>
+    <string name="feedback">意见反馈</string>
+    <string name="logout">退出登录</string>
+    <string name="login">登录</string>
+    
+    <!-- 提醒设置 -->
+    <string name="reminder_settings">提醒设置</string>
+    <string name="enable_reminder">开启用药提醒</string>
+    <string name="reminder_sound">提醒声音</string>
+    <string name="reminder_vibration">提醒震动</string>
+    <string name="auto_record">自动记录服药</string>
+    
+    <!-- 对话框 -->
+    <string name="confirm">确认</string>
+    <string name="confirm_delete">确认删除</string>
+    <string name="delete_medicine_msg">确定要删除该药物吗？</string>
+    <string name="ok">好的</string>
+    <string name="later">稍后</string>
+    
+    <!-- 提示信息 -->
+    <string name="loading">加载中...</string>
+    <string name="save_success">保存成功</string>
+    <string name="save_failed">保存失败</string>
+    <string name="delete_success">删除成功</string>
+    <string name="network_error">网络错误，请重试</string>
+    <string name="data_syncing">数据同步中...</string>
+    <string name="no_internet">无网络连接</string>
+    
+    <!-- 服药状态 -->
+    <string name="status_normal">正常</string>
+    <string name="status_urgent">即将用完</string>
+    <string name="status_overdue">已过期</string>
+    <string name="status_low_stock">库存不足</string>
+    
+    <!-- 日期时间 -->
+    <string name="today">今天</string>
+    <string name="yesterday">昨天</string>
+    <string name="this_week">本周</string>
+    <string name="this_month">本月</string>
+</resources>

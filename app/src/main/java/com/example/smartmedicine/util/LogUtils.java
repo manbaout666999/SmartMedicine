@@ -35,9 +35,8 @@ public class LogUtils {
      * @param msg 日志信息
      */
     public static void e(String msg) {
-        if (DEBUG) {
-            Log.e(TAG, msg);
-        }
+        // 错误日志不受DEBUG开关影响，确保生产环境也能记录错误
+        Log.e(TAG, msg);
     }
 
     /**
@@ -46,9 +45,8 @@ public class LogUtils {
      * @param msg 日志信息
      */
     public static void e(String tag, String msg) {
-        if (DEBUG) {
-            Log.e(tag, msg);
-        }
+        // 错误日志不受DEBUG开关影响，确保生产环境也能记录错误
+        Log.e(tag, msg);
     }
 
     /**

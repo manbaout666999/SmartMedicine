@@ -68,6 +68,15 @@ public class MainActivity extends AppCompatActivity {
         profileFragment = new ProfileFragment();
     }
 
+    /**
+     * 供子Fragment调用：切换到底部某个Tab
+     */
+    public void switchToTab(int menuItemId) {
+        if (bottomNavigationView != null) {
+            bottomNavigationView.setSelectedItemId(menuItemId);
+        }
+    }
+
     private void setupListeners() {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();

@@ -6,6 +6,7 @@ import com.example.smartmedicine.base.BaseResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 /**
  * 药品AI分析管理类（封装AI接口调用逻辑）
@@ -16,7 +17,7 @@ public class MedicineAIManager {
 
     // 初始化AI接口实例
     static {
-        aiMedicineApi = RetrofitClient.createService(MedicineApi.class, RetrofitClient.getAIInstance());
+        aiMedicineApi = RetrofitClient.createService(MedicineApi.class, RetrofitClient.getChatAIInstance());
     }
 
     /**

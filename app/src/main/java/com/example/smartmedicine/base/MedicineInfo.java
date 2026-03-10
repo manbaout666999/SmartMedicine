@@ -14,6 +14,7 @@ public class MedicineInfo implements Serializable {
     private String allergens;       // 过敏原（如"青霉素、海鲜"）
     private String warning;         // 注意事项（如"孕妇禁用、避免饮酒"）
     private String manufacturer;    // 生产厂家（可选）
+    private String imagePath;       // 药品图片路径
 
     // Getter & Setter（小驼峰命名规范）
     public String getMedicineName() {
@@ -78,5 +79,13 @@ public class MedicineInfo implements Serializable {
 
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

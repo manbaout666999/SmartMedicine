@@ -3,31 +3,53 @@ package com.example.smartmedicine.api;
 import com.example.smartmedicine.base.BaseResponse;
 import com.example.smartmedicine.base.MedicineInfo;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 /**
  * 药品相关API接口（Retrofit注解定义）
+ * 保留原有 JSON 请求方式，同时新增图片上传识药接口。
  */
 public interface MedicineApi {
-    // 原有接口（保留）
+
+    // ========== 原有接口（保留，避免影响已有逻辑） ==========
+
     @POST(ApiConfig.PATH_RECOGNIZE_MEDICINE)
     Call<BaseResponse<MedicineInfo>> recognizeMedicine(@Body MedicineRecognizeRequest request);
 
     @POST(ApiConfig.PATH_QUERY_MEDICINE)
     Call<BaseResponse<MedicineInfo>> queryMedicineInfo(@Body MedicineQueryRequest request);
 
-    // ========== 新增AI药品分析接口 ==========
     /**
      * AI分析药品信息（判断药品适用症、禁忌、服用建议等）
-     * @param request AI分析请求体（含药品名称/识别结果、用户健康数据）
-     * @return AI分析结果（药品建议、风险提示等）
      */
     @POST(ApiConfig.PATH_AI_ANALYZE_MEDICINE)
     Call<BaseResponse<MedicineAIAnalysisResponse>> analyzeMedicineByAI(@Body MedicineAIAnalysisRequest request);
 
-    // 原有请求体（保留）
+    // ========== 新增：图片上传识别药盒 ==========
+
+    /**
+     * 上传药盒照片并识别药品名称、用法用量等信息
+     * 注意：方法名与原有 recognizeMedicine 区分开，避免冲突
+     */
+    @Multipart
+    @POST(ApiConfig.PATH_RECOGNIZE_MEDICINE)
+    Call<BaseResponse<MedicineRecognizeResult>> recognizeMedicineByImage(
+            @Part MultipartBody.Part image,
+            @Part("userId") RequestBody userId
+    );
+
+    @GET(ApiConfig.PATH_QUERY_MEDICINE)
+    Call<BaseResponse<MedicineDetailResult>> queryMedicineDetail(/* 预留：根据需要添加查询参数 */);
+
+    // ========== 原有请求体（保留） ==========
+
     class MedicineRecognizeRequest {
         private String imageBase64;
 
@@ -61,6 +83,7 @@ public interface MedicineApi {
     }
 
     // ========== 新增AI相关请求/响应模型 ==========
+
     /**
      * AI药品分析请求体
      */
@@ -168,6 +191,74 @@ public interface MedicineApi {
 
         public void setConfidence(int confidence) {
             this.confidence = confidence;
+        }
+    }
+
+    // ========== 新增图片识别结果/药品详情模型 ==========
+
+    /**
+     * 图片识别结果数据结构（字段需与后端约定保持一致）
+     */
+    class MedicineRecognizeResult {
+        private String medicineName;
+        private String dosageText;    // 原始用法文本，例如“每日2次，每次1片”
+
+        public String getMedicineName() {
+            return medicineName;
+        }
+
+        public void setMedicineName(String medicineName) {
+            this.medicineName = medicineName;
+        }
+
+        public String getDosageText() {
+            return dosageText;
+        }
+
+        public void setDosageText(String dosageText) {
+            this.dosageText = dosageText;
+        }
+    }
+
+    /**
+     * 药品详情数据结构（示例，具体字段按后端实际返回调整）
+     */
+    class MedicineDetailResult {
+        private String medicineName;
+        private String indications;
+        private String contraindications;
+        private String sideEffects;
+
+        public String getMedicineName() {
+            return medicineName;
+        }
+
+        public void setMedicineName(String medicineName) {
+            this.medicineName = medicineName;
+        }
+
+        public String getIndications() {
+            return indications;
+        }
+
+        public void setIndications(String indications) {
+            this.indications = indications;
+        }
+
+        public String getContraindications() {
+            return contraindications;
+        }
+
+        public void setContraindications(String contraindications) {
+            this.contraindications = contraindications;
+        }
+
+        public String getSideEffects() {
+            return sideEffects;
+        }
+
+        public void setSideEffects(String sideEffects) {
+            this.sideEffects = sideEffects;
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.example.smartmedicine.ui;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.smartmedicine.R;
+import com.example.smartmedicine.MainActivity;
 import com.google.android.material.card.MaterialCardView;
 import android.widget.CompoundButton;
 
@@ -69,6 +72,10 @@ public class ProfileFragment extends Fragment {
         } catch (Exception e) {
             tvVersion.setText("版本 1.0.0");
         }
+
+        // 加载用药提醒开关状态
+        boolean enableReminder = getReminderEnabled(requireContext());
+        switchReminder.setChecked(enableReminder);
     }
 
     private void setupListeners() {
@@ -76,7 +83,9 @@ public class ProfileFragment extends Fragment {
         cardMyMedicine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 跳转到药物列表
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).switchToTab(R.id.nav_medicine);
+                }
             }
         });
 
@@ -84,7 +93,9 @@ public class ProfileFragment extends Fragment {
         cardHealthData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 跳转到健康数据页面
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).switchToTab(R.id.nav_health);
+                }
             }
         });
 
@@ -92,7 +103,7 @@ public class ProfileFragment extends Fragment {
         switchReminder.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // 保存提醒设置
+                saveReminderEnabled(requireContext(), isChecked);
             }
         });
 
@@ -119,5 +130,18 @@ public class ProfileFragment extends Fragment {
                 // 跳转到意见反馈页面
             }
         });
+    }
+
+    private static final String PREF_NAME = "smart_medicine_pref";
+    private static final String KEY_REMINDER_ENABLE = "key_reminder_enable";
+
+    private boolean getReminderEnabled(Context context) {
+        SharedPreferences sp = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        return sp.getBoolean(KEY_REMINDER_ENABLE, true);
+    }
+
+    private void saveReminderEnabled(Context context, boolean enable) {
+        SharedPreferences sp = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        sp.edit().putBoolean(KEY_REMINDER_ENABLE, enable).apply();
     }
 }

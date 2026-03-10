@@ -18,42 +18,69 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- 药物图标 -->
+        <!-- 药物图片/图标 -->
         <ImageView
             android:id="@+id/iv_medicine_icon"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/ic_medicine"
-            android:tint="@color/primary"
             android:background="@drawable/bg_circle"
-            android:padding="12dp"
+            android:scaleType="centerCrop"
             android:contentDescription="@null"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 编辑按钮 -->
+        <ImageView
+            android:id="@+id/iv_edit"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_edit"
+            android:tint="@color/text_secondary"
+            android:contentDescription="编辑"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            app:layout_constraintEnd_toStartOf="@id/iv_delete"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/divider" />
+
+        <!-- 删除按钮 -->
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_delete"
+            android:tint="@color/error"
+            android:contentDescription="删除"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/divider" />
 
         <!-- 药物名称 -->
         <TextView
             android:id="@+id/tv_medicine_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:maxLines="2"
             android:textColor="@color/text_primary"
             android:textSize="16sp"
             android:textStyle="bold"
             tools:text="阿司匹林肠溶片"
             app:layout_constraintStart_toEndOf="@id/iv_medicine_icon"
-            app:layout_constraintEnd_toStartOf="@id/tv_status"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toStartOf="@id/iv_edit"
+            app:layout_constraintTop_toTopOf="@id/iv_medicine_icon" />
 
         <!-- 规格 -->
         <TextView
             android:id="@+id/tv_spec"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:ellipsize="end"
             android:maxLines="1"
@@ -61,24 +88,8 @@
             android:textSize="14sp"
             tools:text="100mg * 24片"
             app:layout_constraintStart_toEndOf="@id/iv_medicine_icon"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_edit"
             app:layout_constraintTop_toBottomOf="@id/tv_medicine_name" />
-
-        <!-- 状态标签 -->
-        <TextView
-            android:id="@+id/tv_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_status_tag"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            android:textColor="@color/white"
-            android:textSize="10sp"
-            tools:text="正常"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- 分割线 -->
         <View

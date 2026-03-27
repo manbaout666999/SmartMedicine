@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 应用私有外部存储路径（Android/data/.../files），无需存储权限 -->
+    <external-files-path
+        name="external_files"
+        path="." />
+
+    <!-- 应用内部缓存目录 -->
+    <cache-path
+        name="cache_files"
+        path="." />
+</paths>
+
